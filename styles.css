@@ -11,11 +11,17 @@ a {
 
 .title-wrapper {
     background-color: white;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 #white-cell {
     background-color: white;
+}
+
+.series-table-body tr:hover td, tr:hover th {
+    background-color: #00ACC1;
+    color: white !important;
+    cursor: pointer;
 }
 
 

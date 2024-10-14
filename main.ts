@@ -10,20 +10,19 @@ showSeriesData(series);
 
 function showSeriesData(series: Serie[]): void {
     let tbodySeries: HTMLElement = document.createElement('tbody');
+    tbodySeries.classList.add('series-table-body');
     for (let serie of series) {
         let trSerie: HTMLElement = document.createElement('tr');
         trSerie.innerHTML = `<th scope="row">${serie.id}</th>
-        <td style="color:blue">${serie.name}</td>
+        <td style="color:#00ACC1"><strong>${serie.name}</strong></td>
         <td>${serie.channel}</td>
         <td>${serie.seasons}</td>`;
+        trSerie.addEventListener('click', () => showSeriesCard(serie));
         tbodySeries.appendChild(trSerie);
     }
 
-    // let trSeasonAvg: HTMLElement = document.createElement('tr');
-    // trSeasonAvg.innerHTML = `<td scope="row" id="white-cell" colspan="12">Seasons average: ${seasonAvg}</td>`;
-    // tbodySeries.appendChild(trSeasonAvg);
     seriesTable.appendChild(tbodySeries);
-    
+
     let seasonAvg = getSeasonsAvg(series);
     showSeasonsAvg(seasonAvg);
 }
@@ -40,4 +39,8 @@ function getSeasonsAvg(series: Serie[]): number {
         sum += serie.seasons;
     }
     return sum / series.length;
+}
+
+function showSeriesCard(serie: Serie): void {
+    console.log(`${serie.name} has been clicked`);
 }

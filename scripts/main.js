@@ -5,15 +5,17 @@ console.log("otra cosa");
 showSeriesData(series);
 function showSeriesData(series) {
     var tbodySeries = document.createElement('tbody');
+    tbodySeries.classList.add('series-table-body');
+    var _loop_1 = function (serie) {
+        var trSerie = document.createElement('tr');
+        trSerie.innerHTML = "<th scope=\"row\">".concat(serie.id, "</th>\n        <td style=\"color:#00ACC1\"><strong>").concat(serie.name, "</strong></td>\n        <td>").concat(serie.channel, "</td>\n        <td>").concat(serie.seasons, "</td>");
+        trSerie.addEventListener('click', function () { return showSeriesCard(serie); });
+        tbodySeries.appendChild(trSerie);
+    };
     for (var _i = 0, series_1 = series; _i < series_1.length; _i++) {
         var serie = series_1[_i];
-        var trSerie = document.createElement('tr');
-        trSerie.innerHTML = "<th scope=\"row\">".concat(serie.id, "</th>\n        <td style=\"color:blue\">").concat(serie.name, "</td>\n        <td>").concat(serie.channel, "</td>\n        <td>").concat(serie.seasons, "</td>");
-        tbodySeries.appendChild(trSerie);
+        _loop_1(serie);
     }
-    // let trSeasonAvg: HTMLElement = document.createElement('tr');
-    // trSeasonAvg.innerHTML = `<td scope="row" id="white-cell" colspan="12">Seasons average: ${seasonAvg}</td>`;
-    // tbodySeries.appendChild(trSeasonAvg);
     seriesTable.appendChild(tbodySeries);
     var seasonAvg = getSeasonsAvg(series);
     showSeasonsAvg(seasonAvg);
@@ -30,4 +32,7 @@ function getSeasonsAvg(series) {
         sum += serie.seasons;
     }
     return sum / series.length;
+}
+function showSeriesCard(serie) {
+    console.log("".concat(serie.name, " has been clicked"));
 }
