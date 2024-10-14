@@ -42,14 +42,41 @@ function getSeasonsAvg(series: Serie[]): number {
 
 function showSeriesCard(serie: Serie): void {
     console.log(`${serie.name} has been clicked`);
+    
+    cardColumn.innerHTML = '';
+
     let card: HTMLElement = document.createElement('div');
     card.classList.add('card');
     card.style.width = '18rem';
-    cardColumn.innerHTML = `<img class="card-img-top" src="./images/${serie.image}" alt="Image of ${serie.name}">
-    <div class="card-body">
-        <h5 class="card-title">${serie.name}</h5>
-        <p class="card-text">${serie.description}</p>
-        <a href="${serie.link}" target="_blank">${serie.link}</a>
-    </div>`;
+
+    let cardImg: HTMLElement = document.createElement('img');
+    cardImg.classList.add('card-img-top');
+    cardImg.setAttribute('src', `./images/${serie.image}`);
+    cardImg.setAttribute('alt', `Image of ${serie.name}`);
+
+    let cardBody: HTMLElement = document.createElement('div');
+    cardBody.classList.add('card-body');
+
+    let cardTitle: HTMLElement = document.createElement('h5');
+    cardTitle.classList.add('card-title');
+    cardTitle.textContent = serie.name;
+
+    let cardText: HTMLElement = document.createElement('p');
+    cardText.classList.add('card-text');
+    cardText.textContent = serie.description;
+
+    let cardLink: HTMLElement = document.createElement('a');
+    cardLink.setAttribute('href', serie.link);
+    cardLink.setAttribute('target', '_blank');
+    cardLink.textContent = serie.link;
+
+    cardBody.appendChild(cardTitle);
+    cardBody.appendChild(cardText);
+    cardBody.appendChild(cardLink);
+    
+    card.appendChild(cardImg);
+    card.appendChild(cardBody);
+    
     cardColumn.appendChild(card);
 }
+

@@ -34,9 +34,30 @@ function getSeasonsAvg(series) {
 }
 function showSeriesCard(serie) {
     console.log("".concat(serie.name, " has been clicked"));
+    cardColumn.innerHTML = '';
     var card = document.createElement('div');
     card.classList.add('card');
     card.style.width = '18rem';
-    cardColumn.innerHTML = "<img class=\"card-img-top\" src=\"./images/".concat(serie.image, "\" alt=\"Image of ").concat(serie.name, "\">\n    <div class=\"card-body\">\n        <h5 class=\"card-title\">").concat(serie.name, "</h5>\n        <p class=\"card-text\">").concat(serie.description, "</p>\n        <a href=\"").concat(serie.link, "\" target=\"_blank\">").concat(serie.link, "</a>\n    </div>");
+    var cardImg = document.createElement('img');
+    cardImg.classList.add('card-img-top');
+    cardImg.setAttribute('src', "./images/".concat(serie.image));
+    cardImg.setAttribute('alt', "Image of ".concat(serie.name));
+    var cardBody = document.createElement('div');
+    cardBody.classList.add('card-body');
+    var cardTitle = document.createElement('h5');
+    cardTitle.classList.add('card-title');
+    cardTitle.textContent = serie.name;
+    var cardText = document.createElement('p');
+    cardText.classList.add('card-text');
+    cardText.textContent = serie.description;
+    var cardLink = document.createElement('a');
+    cardLink.setAttribute('href', serie.link);
+    cardLink.setAttribute('target', '_blank');
+    cardLink.textContent = serie.link;
+    cardBody.appendChild(cardTitle);
+    cardBody.appendChild(cardText);
+    cardBody.appendChild(cardLink);
+    card.appendChild(cardImg);
+    card.appendChild(cardBody);
     cardColumn.appendChild(card);
 }
