@@ -1,0 +1,21 @@
+a {
+    text-decoration: none;
+}
+
+.title {
+    background-color: #00ACC1;
+    color: black;
+    padding: 10px;
+    font-size: 24px;
+}
+
+.title-wrapper {
+    background-color: white;
+    padding-bottom: 20px;
+}
+
+#white-cell {
+    background-color: white;
+}
+
+
