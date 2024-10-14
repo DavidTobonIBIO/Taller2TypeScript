@@ -1,7 +1,6 @@
 import { series } from './data.js';
 var seriesTable = document.getElementById('series-table');
-console.log(series);
-console.log("otra cosa");
+var cardColumn = document.getElementById('card-col');
 showSeriesData(series);
 function showSeriesData(series) {
     var tbodySeries = document.createElement('tbody');
@@ -35,4 +34,9 @@ function getSeasonsAvg(series) {
 }
 function showSeriesCard(serie) {
     console.log("".concat(serie.name, " has been clicked"));
+    var card = document.createElement('div');
+    card.classList.add('card');
+    card.style.width = '18rem';
+    cardColumn.innerHTML = "<img class=\"card-img-top\" src=\"./images/".concat(serie.image, "\" alt=\"Image of ").concat(serie.name, "\">\n    <div class=\"card-body\">\n        <h5 class=\"card-title\">").concat(serie.name, "</h5>\n        <p class=\"card-text\">").concat(serie.description, "</p>\n        <a href=\"").concat(serie.link, "\" target=\"_blank\">").concat(serie.link, "</a>\n    </div>");
+    cardColumn.appendChild(card);
 }

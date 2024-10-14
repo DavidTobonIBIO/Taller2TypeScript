@@ -2,9 +2,8 @@ import { Serie } from './serie.js';
 import { series } from './data.js';
 
 let seriesTable: HTMLElement = document.getElementById('series-table')!;
+let cardColumn: HTMLElement = document.getElementById('card-col')!;
 
-console.log(series);
-console.log("otra cosa");
 
 showSeriesData(series);
 
@@ -43,4 +42,14 @@ function getSeasonsAvg(series: Serie[]): number {
 
 function showSeriesCard(serie: Serie): void {
     console.log(`${serie.name} has been clicked`);
+    let card: HTMLElement = document.createElement('div');
+    card.classList.add('card');
+    card.style.width = '18rem';
+    cardColumn.innerHTML = `<img class="card-img-top" src="./images/${serie.image}" alt="Image of ${serie.name}">
+    <div class="card-body">
+        <h5 class="card-title">${serie.name}</h5>
+        <p class="card-text">${serie.description}</p>
+        <a href="${serie.link}" target="_blank">${serie.link}</a>
+    </div>`;
+    cardColumn.appendChild(card);
 }
