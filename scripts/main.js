@@ -8,7 +8,7 @@ function showSeriesData(series) {
     for (var _i = 0, series_1 = series; _i < series_1.length; _i++) {
         var serie = series_1[_i];
         var trSerie = document.createElement('tr');
-        trSerie.innerHTML = "<th scope=\"row\">".concat(serie.id, "</th>\n        <td><a href=\"").concat(serie.link, "\" target=\"_blank\">").concat(serie.name, "</a></td>\n        <td>").concat(serie.channel, "</td>\n        <td>").concat(serie.seasons, "</td>");
+        trSerie.innerHTML = "<th scope=\"row\">".concat(serie.id, "</th>\n        <td style=\"color:blue\">").concat(serie.name, "</td>\n        <td>").concat(serie.channel, "</td>\n        <td>").concat(serie.seasons, "</td>");
         tbodySeries.appendChild(trSerie);
     }
     var seasonAvg = getSeasonsAvg(series);

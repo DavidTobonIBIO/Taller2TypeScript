@@ -13,7 +13,7 @@ function showSeriesData(series: Serie[]): void {
     for (let serie of series) {
         let trSerie: HTMLElement = document.createElement('tr');
         trSerie.innerHTML = `<th scope="row">${serie.id}</th>
-        <td><a href="${serie.link}" target="_blank">${serie.name}</a></td>
+        <td style="color:blue">${serie.name}</td>
         <td>${serie.channel}</td>
         <td>${serie.seasons}</td>`;
         tbodySeries.appendChild(trSerie);
