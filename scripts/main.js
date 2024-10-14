@@ -11,11 +11,17 @@ function showSeriesData(series) {
         trSerie.innerHTML = "<th scope=\"row\">".concat(serie.id, "</th>\n        <td style=\"color:blue\">").concat(serie.name, "</td>\n        <td>").concat(serie.channel, "</td>\n        <td>").concat(serie.seasons, "</td>");
         tbodySeries.appendChild(trSerie);
     }
+    // let trSeasonAvg: HTMLElement = document.createElement('tr');
+    // trSeasonAvg.innerHTML = `<td scope="row" id="white-cell" colspan="12">Seasons average: ${seasonAvg}</td>`;
+    // tbodySeries.appendChild(trSeasonAvg);
+    seriesTable.appendChild(tbodySeries);
     var seasonAvg = getSeasonsAvg(series);
+    showSeasonsAvg(seasonAvg);
+}
+function showSeasonsAvg(seasonAvg) {
     var trSeasonAvg = document.createElement('tr');
     trSeasonAvg.innerHTML = "<td scope=\"row\" id=\"white-cell\" colspan=\"12\">Seasons average: ".concat(seasonAvg, "</td>");
-    tbodySeries.appendChild(trSeasonAvg);
-    seriesTable.appendChild(tbodySeries);
+    seriesTable.appendChild(trSeasonAvg);
 }
 function getSeasonsAvg(series) {
     var sum = 0;

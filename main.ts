@@ -19,12 +19,19 @@ function showSeriesData(series: Serie[]): void {
         tbodySeries.appendChild(trSerie);
     }
 
-    let seasonAvg = getSeasonsAvg(series);
+    // let trSeasonAvg: HTMLElement = document.createElement('tr');
+    // trSeasonAvg.innerHTML = `<td scope="row" id="white-cell" colspan="12">Seasons average: ${seasonAvg}</td>`;
+    // tbodySeries.appendChild(trSeasonAvg);
+    seriesTable.appendChild(tbodySeries);
     
+    let seasonAvg = getSeasonsAvg(series);
+    showSeasonsAvg(seasonAvg);
+}
+
+function showSeasonsAvg(seasonAvg: number): void {
     let trSeasonAvg: HTMLElement = document.createElement('tr');
     trSeasonAvg.innerHTML = `<td scope="row" id="white-cell" colspan="12">Seasons average: ${seasonAvg}</td>`;
-    tbodySeries.appendChild(trSeasonAvg);
-    seriesTable.appendChild(tbodySeries);
+    seriesTable.appendChild(trSeasonAvg);
 }
 
 function getSeasonsAvg(series: Serie[]): number {
