@@ -18,10 +18,9 @@ a {
     background-color: white;
 }
 
-.series-table-body tr:hover td, tr:hover th {
+.series-table-body tr:hover td,
+tr:hover th {
     background-color: #00ACC1;
     color: white !important;
     cursor: pointer;
 }
-
-

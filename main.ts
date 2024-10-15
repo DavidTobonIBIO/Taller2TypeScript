@@ -42,7 +42,7 @@ function getSeasonsAvg(series: Serie[]): number {
 
 function showSeriesCard(serie: Serie): void {
     console.log(`${serie.name} has been clicked`);
-    
+
     cardColumn.innerHTML = '';
 
     let card: HTMLElement = document.createElement('div');
@@ -73,10 +73,10 @@ function showSeriesCard(serie: Serie): void {
     cardBody.appendChild(cardTitle);
     cardBody.appendChild(cardText);
     cardBody.appendChild(cardLink);
-    
+
     card.appendChild(cardImg);
     card.appendChild(cardBody);
-    
+
     cardColumn.appendChild(card);
 }
 
