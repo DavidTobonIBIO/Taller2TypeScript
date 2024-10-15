@@ -4,7 +4,6 @@ import { series } from './data.js';
 let seriesTable: HTMLElement = document.getElementById('series-table')!;
 let cardColumn: HTMLElement = document.getElementById('card-col')!;
 
-
 showSeriesData(series);
 
 function showSeriesData(series: Serie[]): void {
